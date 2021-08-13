@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost/API-Server", { useNewUrlParser: true,  useUnifiedTopology: true}, (err) => {
+mongoose.connect("mongodb://127.0.0.1:27017/API-Server", { useNewUrlParser: true,  useUnifiedTopology: true}, (err) => {
   console.log(err ? err : "connected to db");
 });
 
