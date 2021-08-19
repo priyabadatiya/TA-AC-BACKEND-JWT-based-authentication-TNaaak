@@ -74,4 +74,3 @@ router.delete('/:username/follow', auth.verifyToken, async function (req, res, n
 module.exports = router;
 
 
-module.exports = router;

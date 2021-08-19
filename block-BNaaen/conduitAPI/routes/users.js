@@ -7,9 +7,9 @@ var bcrypt = require('bcrypt');
 
 //register user
 router.post("/", async function (req, res, next) {
-  console.log("here")
+  console.log(req.body.user)
   try {
-  var user = await User.create(req.body.user);
+  var user = await User.create(req.body);
 
   var token = await user.signToken();
    return  res.status(201).json({ user: user.userJSON(token) });
@@ -51,15 +51,22 @@ router.use(auth.verifyToken);
 
 //get current user
 router.get("/", auth.verifyToken, async function (req, res, next) {
+  console.log("yes")
   try {
     var user= await User.findById(req.user.userId);
-    res.json({user:user.userJSON(token)});
+    console.log(1234567, user)
+    res.json({user,success : true
+    
+    
+    
+    
+    
+    });
   } catch (error) {
     next(error)
   }
  
 });
-
 
 //update user
 router.put("/", auth.verifyToken, async function (req, res, next) {
